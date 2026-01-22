@@ -1,0 +1,7 @@
+# Jira Config
+jira.url=https://your-domain.atlassian.net
+jira.username=YOUR_EMAIL
+jira.token=YOUR_API_TOKEN
+
+# Server Port
+server.port=8080
