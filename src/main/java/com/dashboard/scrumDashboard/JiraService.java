@@ -118,18 +118,24 @@ public class JiraService {
         }
     }
 
-    public Map<String, Object> getGreenHopperBurndown(Long boardId, Long sprintId) {
+    public List<Map<String, Object>> getBacklogOnly(Long boardId) {
         try {
-            String url = "/rest/greenhopper/1.0/rapid/charts/scopechangeburndownchart?rapidViewId=" + boardId + "&sprintId=" + sprintId;
-            return restClient.get()
+            String fields = "key,summary,status,priority,issuetype,created";
+
+            // Jira'dan kutuyu (Map) alıyoruz
+            String url = "/rest/agile/1.0/board/" + boardId + "/backlog?fields=" + fields;
+
+            Map<String, Object> rawResponse = restClient.get()
                     .uri(url)
                     .retrieve()
                     .body(Map.class);
-
+            if (rawResponse != null && rawResponse.containsKey("issues")) {
+                return (List<Map<String, Object>>) rawResponse.get("issues");
+            }
         } catch (Exception e) {
-            System.err.println("Burndown verisi çekilemedi (Board: " + boardId + ", Sprint: " + sprintId + "): " + e.getMessage());
-            return new HashMap<>();
+            System.err.println("Hata: " + e.getMessage());
         }
+        return new ArrayList<>();
     }
-
+    
 }
