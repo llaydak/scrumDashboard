@@ -45,7 +45,7 @@ public class JiraService {
     }
     public Map<String,Object> listIssues(Long boardId, Long sprintId) {
         JiraSearchResponse response = restClient.get()
-                .uri("/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue") //JQL denenmeli mi?
+                .uri("/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue")
                 .retrieve()
                 .body(JiraSearchResponse.class);
         if (response == null || response.getIssues() == null) {
@@ -68,7 +68,7 @@ public class JiraService {
             if(sp == null) sp = 0.0;
             totalSP += sp;
             String status =issue.getFields().getStatus().getName();
-            if("Done".equalsIgnoreCase(status)){
+            if("Resolved".equalsIgnoreCase(status)){
                 completedSP += sp;
             }
 
