@@ -1,11 +1,10 @@
-package com.dashboard.scrumDashboard;
+package com.dashboard.scrumDashboard.controller;
 
+import com.dashboard.scrumDashboard.service.JiraService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
