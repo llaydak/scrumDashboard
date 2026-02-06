@@ -1,4 +1,4 @@
-package com.dashboard.scrumDashboard;
+package com.dashboard.scrumDashboard.config;
 
 
 import org.springframework.context.annotation.Bean;

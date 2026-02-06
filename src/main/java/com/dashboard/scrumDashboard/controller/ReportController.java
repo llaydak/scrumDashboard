@@ -1,4 +1,5 @@
-package com.dashboard.scrumDashboard;
+package com.dashboard.scrumDashboard.controller;
+import com.dashboard.scrumDashboard.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.dashboard.scrumDashboard.ReportRequest;

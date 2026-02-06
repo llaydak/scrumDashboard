@@ -1,4 +1,4 @@
-package com.dashboard.scrumDashboard;
+package com.dashboard.scrumDashboard.service;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
